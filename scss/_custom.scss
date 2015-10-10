@@ -1,0 +1,315 @@
+$primary-text-color: $body-font-color;
+$secondary-text-color: lighten($body-font-color, 20%);
+
+$text-color: $primary-text-color;
+$base-line-height: paragraph-line-height;
+$background-color: $body-bg;
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+$hamburger-menu-width: rem-calc(18);
+$hamburger-menu-height: rem-calc(15);
+$hamburger-space: rem-calc(10);
+$hamburger-border-width: 1px;
+
+$footer-reduction: 1;
+
+.icon {
+
+  > svg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+
+    path {
+      fill: $grey-color;
+    }
+  }
+}
+
+.header-wrapper {
+  border-bottom: 1px solid $secondary-color;
+}
+.site-header {
+  h1 {
+    font-size: $h1-font-size * 0.75;
+  }
+}
+
+.post-meta {
+  color: $secondary-text-color;
+  font-size: 0.9rem;
+}
+
+.post-excerpt {
+  // To have gap between post excerpts on listing pages.
+  margin-bottom: $paragraph-margin-bottom + $paragraph-margin-bottom / 2;
+}
+
+.content-wrapper {
+  padding-top: $column-gutter / 2;
+}
+
+.footer-wrapper {
+  padding: $column-gutter / 2 0;
+  background-color: $secondary-color;
+  p, a {
+    font-size: 1rem * $footer-reduction;
+  }
+  
+  h1 {
+    font-size: $h1-font-size * $footer-reduction;
+  }
+  h2 {
+    font-size: $h2-font-size * $footer-reduction;
+  }
+  p, li {
+    color: lighten($body-font-color, 20%);
+  }
+}
+
+.social-media-list {
+  ul {
+    list-style: none;
+    overflow: auto;
+    margin: 0;
+  }
+  li {
+    float: left;
+    &:not(:first-child) {
+      margin-left: 1rem;
+    } 
+  }
+}
+
+.site-nav {
+  line-height: 1.6;
+  margin: ($list-margin-bottom / 2)  0;
+  .menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    line-height: 0;
+    padding: 0;
+  }
+  .trigger {
+    list-style: none;
+    margin: 0;
+    overflow: auto;
+    li {
+      float: right;
+      margin: 0 $column-gutter / 2;
+    }
+    a {
+      display: inline-block;
+    }
+  }
+  @media #{$small-only} {
+    border: $hamburger-border-width solid $grey-color-light;
+    border-radius: 5px;
+    min-width: $hamburger-menu-width + $hamburger-space * 2 + rem-calc($hamburger-border-width);
+    min-height: $hamburger-menu-height + $hamburger-space * 2 + rem-calc($hamburger-border-width);
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    margin-right: $column-gutter;
+    .button {
+      position: absolute;
+      right: 0; 
+    }
+    .menu-icon {
+      display: block;
+      width: $hamburger-menu-width;
+      height: $hamburger-menu-height;
+      margin: $hamburger-space;
+      svg {
+        width: $hamburger-menu-width;
+        height: $hamburger-menu-height;
+        path {
+          fill: $grey-color-dark;
+        }
+      }
+    }
+    &:hover {
+      max-height: none;
+      max-width: none;
+    }
+    &:hover .trigger {
+      display: block;
+      width: auto;
+      height: auto;
+      margin-top: $hamburger-menu-height + $hamburger-space * 2;
+    }
+    .trigger {
+      width: 1px;
+      height: 1px;
+      li {
+        float: none;
+        text-align: right;
+        &:not(:first-child) {
+          margin-left: $hamburger-space;
+        }
+      }
+    }
+  }
+
+//    .page-link {
+//        // Gaps between nav items, but not on the first one
+//        &:not(:first-child) {
+//            margin-left: 20px;
+//        }
+//    }
+//
+//    @media #{$small-only}{
+//        position: absolute;
+//        top: 9px;
+//        right: 30px;
+//        background-color: $background-color;
+//        border: 1px solid $grey-color-light;
+//        border-radius: 5px;
+//        text-align: right;
+//
+//        .menu-icon {
+//            display: block;
+//            float: right;
+//            width: rem-calc(36);
+//            height: rem-calc(26);
+//            line-height: 0;
+//            padding-top: 10px;
+//            text-align: center;
+//
+//            > svg {
+//                width: 18px;
+//                height: 15px;
+//
+//                path {
+//                    fill: $grey-color-dark;
+//                }
+//            }
+//        }
+//
+//        .trigger {
+//            clear: both;
+//            display: none;
+//        }
+//
+//        &:hover .trigger {
+//            display: block;
+//            padding-bottom: 5px;
+//        }
+//
+//        .page-link {
+//            display: block;
+//            padding: 5px 10px;
+//        }
+//    }
+}
+
+#disqus_thread {
+  margin-bottom: $column-gutter / 2;
+}
+
+
+/**
+ * Copied from jekyll default site.
+ */
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
+    background-color: #eef;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: scroll;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.highlight {
+  margin-bottom: $paragraph-margin-bottom;
+}
+
+/**
+ * Syntax highlighting styles
+ */
+.highlight {
+    background: #fff;
+    @extend %vertical-rhythm;
+
+    .c     { color: #998; font-style: italic } // Comment
+    .err   { color: #a61717; background-color: #e3d2d2 } // Error
+    .k     { font-weight: bold } // Keyword
+    .o     { font-weight: bold } // Operator
+    .cm    { color: #998; font-style: italic } // Comment.Multiline
+    .cp    { color: #999; font-weight: bold } // Comment.Preproc
+    .c1    { color: #998; font-style: italic } // Comment.Single
+    .cs    { color: #999; font-weight: bold; font-style: italic } // Comment.Special
+    .gd    { color: #000; background-color: #fdd } // Generic.Deleted
+    .gd .x { color: #000; background-color: #faa } // Generic.Deleted.Specific
+    .ge    { font-style: italic } // Generic.Emph
+    .gr    { color: #a00 } // Generic.Error
+    .gh    { color: #999 } // Generic.Heading
+    .gi    { color: #000; background-color: #dfd } // Generic.Inserted
+    .gi .x { color: #000; background-color: #afa } // Generic.Inserted.Specific
+    .go    { color: #888 } // Generic.Output
+    .gp    { color: #555 } // Generic.Prompt
+    .gs    { font-weight: bold } // Generic.Strong
+    .gu    { color: #aaa } // Generic.Subheading
+    .gt    { color: #a00 } // Generic.Traceback
+    .kc    { font-weight: bold } // Keyword.Constant
+    .kd    { font-weight: bold } // Keyword.Declaration
+    .kp    { font-weight: bold } // Keyword.Pseudo
+    .kr    { font-weight: bold } // Keyword.Reserved
+    .kt    { color: #458; font-weight: bold } // Keyword.Type
+    .m     { color: #099 } // Literal.Number
+    .s     { color: #d14 } // Literal.String
+    .na    { color: #008080 } // Name.Attribute
+    .nb    { color: #0086B3 } // Name.Builtin
+    .nc    { color: #458; font-weight: bold } // Name.Class
+    .no    { color: #008080 } // Name.Constant
+    .ni    { color: #800080 } // Name.Entity
+    .ne    { color: #900; font-weight: bold } // Name.Exception
+    .nf    { color: #900; font-weight: bold } // Name.Function
+    .nn    { color: #555 } // Name.Namespace
+    .nt    { color: #000080 } // Name.Tag
+    .nv    { color: #008080 } // Name.Variable
+    .ow    { font-weight: bold } // Operator.Word
+    .w     { color: #bbb } // Text.Whitespace
+    .mf    { color: #099 } // Literal.Number.Float
+    .mh    { color: #099 } // Literal.Number.Hex
+    .mi    { color: #099 } // Literal.Number.Integer
+    .mo    { color: #099 } // Literal.Number.Oct
+    .sb    { color: #d14 } // Literal.String.Backtick
+    .sc    { color: #d14 } // Literal.String.Char
+    .sd    { color: #d14 } // Literal.String.Doc
+    .s2    { color: #d14 } // Literal.String.Double
+    .se    { color: #d14 } // Literal.String.Escape
+    .sh    { color: #d14 } // Literal.String.Heredoc
+    .si    { color: #d14 } // Literal.String.Interpol
+    .sx    { color: #d14 } // Literal.String.Other
+    .sr    { color: #009926 } // Literal.String.Regex
+    .s1    { color: #d14 } // Literal.String.Single
+    .ss    { color: #990073 } // Literal.String.Symbol
+    .bp    { color: #999 } // Name.Builtin.Pseudo
+    .vc    { color: #008080 } // Name.Variable.Class
+    .vg    { color: #008080 } // Name.Variable.Global
+    .vi    { color: #008080 } // Name.Variable.Instance
+    .il    { color: #099 } // Literal.Number.Integer.Long
+}
+// Copy ends.
